@@ -1,4 +1,3 @@
-import java.util.Arrays;
 /**
  * Testing class for Zoo object
  *
@@ -35,7 +34,8 @@ public class ZooTest
 		int expectedCapacity = 1;
 		Assert.assertEquals(expectedCapacity, zoo.getCapacity());
 		
-		//Add an animal. Capacity shoudl double from 1 to 2
+		//Add two animals. Capacity shoudl double from 1 to 2
+		zoo.addAnimal(new Animal("","",0.0,0.0));
 		zoo.addAnimal(new Animal("","",0.0,0.0));
 		expectedCapacity = 2;
 		Assert.assertEquals(expectedCapacity, zoo.getCapacity());
@@ -46,6 +46,16 @@ public class ZooTest
 	 */
 	public void toStringTest() throws AssertException
 	{
-		
+		//Fill a zoo with some animals. Test against expected output
+		Zoo zoo = new Zoo(3);
+		Animal giraffe = new Animal("yellow","Giraffe",400.035,200.054);
+		Animal rhino = new Animal("grey","Rhino",450.035,100.054);
+		Animal silverback = new Animal("black","Silverback",200.035,80.543);
+		zoo.addAnimal(giraffe);
+		zoo.addAnimal(rhino);
+		zoo.addAnimal(silverback);
+		//Animal toString method utilized. This method is tested in AnimalTest.java
+		String expected = "These animals live in the zoo: \n" + giraffe.toString() + rhino.toString() + silverback.toString();
+		Assert.assertEquals(expected, zoo.toString());
 	}
 }
