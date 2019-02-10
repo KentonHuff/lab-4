@@ -13,7 +13,7 @@ public class ZooTest
 	public void getTotalHeight() throws AssertException
 	{
 		//Test with empty zoo
-		Zoo zoo = new Zoo(0);
+		Zoo zoo = new Zoo(1);
 		double expectedTotalHeight = 0.0;
 		Assert.assertEquals(expectedTotalHeight, zoo.getTotalHeight(), 0.01);
 		
@@ -30,7 +30,15 @@ public class ZooTest
 	 */
 	public void getCapacityTest() throws AssertException
 	{
+		//Test with an empty zoo w/ capacity 1
+		Zoo zoo = new Zoo(1);
+		int expectedCapacity = 1;
+		Assert.assertEquals(expectedCapacity, zoo.getCapacity());
 		
+		//Add an animal. Capacity shoudl double from 1 to 2
+		zoo.addAnimal(new Animal("","",0.0,0.0));
+		expectedCapacity = 2;
+		Assert.assertEquals(expectedCapacity, zoo.getCapacity());
 	}
 	
 	/**
