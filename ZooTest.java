@@ -1,3 +1,4 @@
+import java.util.Arrays;
 /**
  * Testing class for Zoo object
  *
@@ -7,59 +8,21 @@
 public class ZooTest
 {
 	/**
-	 * Test the Zoo constructor and getters
-	 */
-	public void fullConstructorTest() throws AssertException
-	{
-		
-	}
-	
-	/**
-	 * Test the expandZoo method
-	 */
-	public void expandZooTest() throws AssertException
-	{
-		
-	}
-	
-	/**
-	 * Test the addAnimal method
-	 */
-	public void addAnimalTest() throws AssertException
-	{
-		
-	}
-	
-	/**
 	 * Test the empty getTotalHeight method
 	 */
 	public void getTotalHeight() throws AssertException
 	{
+		//Test with empty zoo
+		Zoo zoo = new Zoo(0);
+		double expectedTotalHeight = 0.0;
+		Assert.assertEquals(expectedTotalHeight, zoo.getTotalHeight(), 0.01);
 		
-	}
-	
-	/**
-	 * Test the getAverageWeight method
-	 */
-	public void getAverageHeight() throws AssertException
-	{
-		
-	}
-	
-	/**
-	 * Test the getAverageWeight with color parameter
-	 */
-	public void getAverageWeightColor() throws AssertException
-	{
-		
-	}
-	
-	/**
-	 * Test the getAnimals method
-	 */
-	public void getAnimalsTest() throws AssertException
-	{
-		
+		//Test with some animals in a zoo
+		zoo.addAnimal(new Animal("","",0.0,5.6293));
+		zoo.addAnimal(new Animal("","",0.0,7.3251));
+		zoo.addAnimal(new Animal("","",0.0,5.4479));
+		expectedTotalHeight = 5.6293 + 7.3251 + 5.4479;
+		Assert.assertEquals(expectedTotalHeight, zoo.getTotalHeight(), 0.01);
 	}
 	
 	/**
