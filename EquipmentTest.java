@@ -74,4 +74,33 @@ public class EquipmentTest
     	Assert.assertEquals(expected, equip.toString());
     }
     
+    public void equalsTest() throws AssertException
+    {
+    	//If They are the same object
+    	Equipment eqOne = new Equipment("Batarang/6,15.739,475.9925,Bat-shaped boomerangs");
+    	Equipment eqTwo = eqOne;
+    	Assert.assertTrue(eqOne.equals(eqTwo));
+    	
+    	//If one is not an Equipment object
+    	Assert.assertFalse(eqOne.equals(new Object()));
+    	//If name is different
+    	eqTwo = new Equipment("Bats/6,15.739,475.9925,Bat-shaped boomerangs");
+    	Assert.assertFalse(eqOne.equals(eqTwo));
+    	//If count is different
+    	eqTwo = new Equipment("Batarang/7,15.739,475.9925,Bat-shaped boomerangs");
+    	Assert.assertFalse(eqOne.equals(eqTwo));
+    	//If totalWeight is different
+    	eqTwo = new Equipment("Batarang/6,0.0,475.9925,Bat-shaped boomerangs");
+    	Assert.assertFalse(eqOne.equals(eqTwo));
+    	//If totalPrice is different
+    	eqTwo = new Equipment("Batarang/6,15.739,0.0,Bat-shaped boomerangs");
+    	Assert.assertFalse(eqOne.equals(eqTwo));
+    	//If description is different
+    	eqTwo = new Equipment("Batarang/6,15.739,475.9925,A bat");
+    	Assert.assertFalse(eqOne.equals(eqTwo));
+    	//If all data is the same
+    	eqTwo = new Equipment("Batarang/6,15.739,475.9925,Bat-shaped boomerangs");
+    	Assert.assertTrue(eqOne.equals(eqTwo));
+    }
+    
 }

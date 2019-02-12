@@ -81,5 +81,30 @@ public class AnimalTest
     	String expected = "Giraffe, a yellow-colored animal. 403.2 pounds, 200.5 inches\n";
     	Assert.assertEquals(expected, animal.toString());
     }
+    
+    public void equalsTest() throws AssertException
+    {
+    	//If they are the same object
+    	Animal aniOne = new Animal("yellow", "Giraffe", 403.156, 200.549);
+    	Animal aniTwo = aniOne;
+    	Assert.assertTrue(aniOne.equals(aniTwo));
+    	//If one is not an Animal object
+    	Assert.assertFalse(aniOne.equals(new Object()));
+    	//If color is different
+    	aniTwo = new Animal("green", "Giraffe", 403.156, 200.549);
+    	Assert.assertFalse(aniOne.equals(aniTwo));
+    	//If name is different
+    	aniTwo = new Animal("yellow", "Tiger", 403.156, 200.549);
+    	Assert.assertFalse(aniOne.equals(aniTwo));
+    	//If weight is different
+    	aniTwo = new Animal("yellow", "Giraffe", 0.0, 200.549);
+    	Assert.assertFalse(aniOne.equals(aniTwo));
+    	//If height is different
+    	aniTwo = new Animal("yellow", "Giraffe", 403.156, 0.0);
+    	Assert.assertFalse(aniOne.equals(aniTwo));
+    	//If all data is the same
+    	aniTwo = new Animal("yellow", "Giraffe", 403.156, 200.549);
+    	Assert.assertTrue(aniOne.equals(aniTwo));
+    }
 }
 
